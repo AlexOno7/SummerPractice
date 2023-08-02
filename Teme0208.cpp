@@ -1,4 +1,4 @@
-//De facut : 10X , 3077X , 65X , 3078X , 4373? , 4383? , 376? , 3663X , 4329X , 1453X , 159?
+//De facut : 10X , 3077X , 65X , 3078X , 4383X , 376X , 3663X , 4329X , 1453X , 159?
 
 
 
@@ -82,41 +82,61 @@ int prodK() {
 
 
 
-int notaZece() {
-                                           //Problema 4373 - Nota Zece ???
-    int a, b, note = 0, A, B;
-    cin >> a >> b;
-    A = a;
-    B = b;
-    while (a != b) {
-        if (a < b) {
-            a = a + A;
-            note++;
+
+
+
+
+bool verificare(int a) {
+    bool prim;
+    for (int i = 2; i * i < a; i++) {
+        if (a % i == 0) {
+            return false;
         }
-        else if (a > b) {
-            b = b + B;
-            note++;
+        else {
+            return true;
         }
     }
-    return note;
+}
+
+
+void Inlocuire() {
+                                            //Problema 4383 - Inlocuire 6
+    int n, v[1000];
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    for (int i = n-1;i>=0;i--){
+        if (verificare(v[i])) {
+            v[i] = 0;
+            break;
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        cout << v[i]<<" ";
+    }
 }
 
 
 
-//int Inlocuire() {
-                                            //Problema 4383 - Inlocuire 6 ???
-   
-//}
+
+
+
+
+
+
+
 
 
 
 
 int sumDiv() {
-                                         //Problema 376 - Suma Divizori? - 90
-    int nr, sum = 0;
+                                         //Problema 376 - Suma Divizori
+    int nr;
+    long long sum = 0;
     cin >> nr;
-    for (int i =1;i<=sqrt(nr);i++){
-        if (nr % i == 0) {
+    for (int i =1;i*i<=nr;i++){
+        if (nr % i == 0){
             if (i == nr / i) {
                 sum = sum + i;
             }
@@ -219,7 +239,7 @@ int inserare() {
 int main(){
     
  
-   cout << inserare();
+    Inlocuire();
 
 
 
