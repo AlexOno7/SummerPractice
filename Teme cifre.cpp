@@ -44,11 +44,198 @@ int cifMax() {
 	return aux;
 }
 
+//Tema 16.08
+// Problema 3932 - Sterge zerouri X
+int stergeZero() {
+	int n;
+	cin >> n;
+	while (n % 10 == 0) {
+		n /= 10;
+	}
+	return n;
+}
 
 
 
-int main1() {
+// Problema 3665 - cmmcp  ??? - 80 pct
+int cmmcp() {
+	long long n;
+	int cif = 0, aux = 0, cifMax = -1;
+	cin >> n;
+	aux = n;
+	while (aux != 0) {
+		cif = aux % 10;
+		if (cif % 2 == 0 && cif > cifMax) {
+			cifMax = cif;
+		}
+		aux /= 10;
+	}
+	if (n== 0) {
+		return n;
+	}
+	else if (cifMax < 0) {
+		return 10;
+	}
+	else if (cifMax > 0) {
+		return cifMax;
+	}
+}
 
-	cout << cifMax();
+
+
+
+//Problema 3667 - CifraMaxImp X
+int cifraMaxImp() {
+	int n, v[100], nr = 0, cif = 0;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> v[i];
+	}
+	for(int i=0;i<n;i++){
+		while (v[i] != 0) {
+			if (v[i] % 10 > cif) {
+				cif = v[i] % 10;
+			}
+			v[i] /= 10;
+		}
+		if (cif % 2 == 1) {
+			nr++;
+		}
+		cif = 0;
+	}
+	return nr;
+}
+
+
+//Problema 2288 - Cifra Impara Maxima X
+int cifImpMax() {
+	int n, cif = 0;
+	cin >> n;
+	while (n != 0) {
+		if (n % 10 % 2 == 1&&n%10>cif) {
+			cif = n % 10;
+		}
+		n /= 10;
+	}
+	if (cif == 0) {
+		cout << "nu exista";
+	}
+	else{
+		cout << cif;
+	}
 	return 0;
 }
+
+
+//Problema 4231 - Mingx X
+int minx() {
+	long long n;
+	int x, cif = 10;
+	cin >> n >> x;
+	while (n != 0) {
+		if (n % 10 < cif && n % 10 > x) {
+			cif = n % 10;
+		}
+		n /= 10;
+	}
+	if (cif == 10) {
+		return -1;
+	}
+	else {
+		return cif;
+	}
+}
+
+
+
+//Problema 3620 - Cmmk X
+void cmmk() {
+	long long n;
+	int k;
+	bool maiMare = false;
+	cin >> n >> k;
+	while (n != 0) {
+		if (n % 10 > k) {
+			maiMare = true;
+		}
+		n /= 10;
+	}
+	if (maiMare) {
+		cout << "NU";
+	}
+	else {
+		cout << "DA";
+	}
+}
+
+
+
+//Problema 3254 - Prod Pi X
+int prodPi() {
+	int n, cifImpMin = 10, cifParMax = 0, P = 0;
+	cin >> n;
+	while (n != 0) {
+		if (n % 10 % 2 == 0 && n % 10 > cifParMax) {
+			cifParMax = n % 10;
+		}
+		else if (n % 10 % 2 == 1 && n % 10 < cifImpMin) {
+			cifImpMin = n % 10;
+		}
+		n /= 10;
+	}
+	P = cifImpMin * cifParMax;
+	return P;
+}
+
+
+
+//Problema 4221 - Bune X
+void nrBune() {
+	int a, b, c, minA = 9, minB = 9, maxA = 0, maxB = 0;
+	cin >> a >> b;
+	while (a != 0) {
+		if (a % 10 < minA) {
+			minA = a % 10;
+		}
+		if (a % 10 > maxA) {
+			maxA = a % 10;
+		}
+		a /= 10;
+	}
+	while (b != 0) {
+		if (b % 10 < minB) {
+			minB = b % 10;
+		}
+		if (b % 10 > maxB) {
+			maxB = b % 10;
+		}
+		b /= 10;
+	}
+	if (minA == maxA&&minA==maxB) {
+		c = minA;
+		cout << c;
+	}
+	if (minA == maxB) {
+		c = minA;
+		cout << c;
+	}else if (minB == maxA) {
+		c = maxA;
+		cout << c;
+	}
+	if (minA != maxB && minB != maxA) {
+		cout << "NU";
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
