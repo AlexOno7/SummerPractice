@@ -186,7 +186,7 @@ int numPer() {
 
 
 
-int main() {
+int main1() {
 
 	cout << numPer();
 

@@ -57,11 +57,14 @@ int stergeZero() {
 
 
 
-// Problema 3665 - cmmcp  ??? - 80 pct
+// Problema 3665 - cmmcp  X
 int cmmcp() {
-	long long n;
-	int cif = 0, aux = 0, cifMax = -1;
+	long long n, aux;
+	int cif = 0, cifMax = -1;
 	cin >> n;
+	if (n == 0) {
+		return n;
+	}
 	aux = n;
 	while (aux != 0) {
 		cif = aux % 10;
@@ -70,15 +73,10 @@ int cmmcp() {
 		}
 		aux /= 10;
 	}
-	if (n== 0) {
-		return n;
-	}
-	else if (cifMax < 0) {
+	if (cifMax < 0) {
 		return 10;
 	}
-	else if (cifMax > 0) {
-		return cifMax;
-	}
+	return cifMax;
 }
 
 
@@ -233,7 +231,35 @@ void nrBune() {
 
 
 
+int main() {
+	
+	int v[100][100], n, m, S = 0;
+	cin >> n >> m;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			cin >> v[i][j];
+			if (v[i][j] % 2 == 0) {
+				S += v[i][j];
+			}
+		}
+	}
+	cout << S;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+	return 0;
+}
 
 
 
