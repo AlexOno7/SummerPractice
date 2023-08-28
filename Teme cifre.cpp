@@ -231,7 +231,7 @@ void nrBune() {
 
 
 
-int main() {
+int main1() {
 	
 	int v[100][100], n, m, S = 0;
 	cin >> n >> m;
